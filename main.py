@@ -13,6 +13,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.get("/")
+def home():
+    return {"message": "Name Classifier API is running. Use /api/classify?name=... to test."}
+
 @app.get("/api/classify")
 def classify_name(name: str = Query(None)):
     # 2. INPUT VALIDATION
